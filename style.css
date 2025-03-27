@@ -1,0 +1,221 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /*  Colours */
+    --Green-400: hsl(172, 67%, 45%);
+    --Green-900: hsl(183, 100%, 15%);
+    --Grey-500: hsl(186, 14%, 43%);
+    --Grey-400: hsl(184, 14%, 56%);
+    --Grey-200: hsl(185, 41%, 84%);
+    --Grey-50: hsl(189, 47%, 97%);
+    --White: hsl(0, 100%, 100%);
+
+}
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--Grey-200);
+    color: var(--Grey-500);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: auto;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem auto;
+}
+
+.bill__calculator--container {
+    background-color: var(--White);
+    border-radius: 25px;
+    min-height: 100vh;
+    padding: 2rem;
+    font-weight: 700;
+}
+
+.bill__calculator--input, 
+.bill__calculator--people {
+    position: relative;
+    display: flex;
+    align-items: center;    
+}
+
+.bill__calculator--input input , 
+.bill__calculator--people input {
+    flex: 1;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--Grey-50);
+    padding: 0.1rem 1rem;
+    outline: none;
+    text-align: right;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 0.3rem;
+    color: var(--Green-900);
+    cursor: pointer;
+}
+
+.left-symbol {
+    position: absolute;
+    left: 16px;
+    top: 27px;
+    
+}
+
+.tip__buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    width: 100%;
+    
+}
+
+.tip__button {
+    background-color: var(--Green-900);
+    color: var(--White);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tip__button:hover {
+    background-color: var(--Green-400);
+    color: var(--Green-900);
+}
+
+.tip__buttons input {
+    border: none;
+    text-align: right;
+    border-radius: 5px;
+    padding: 0 1rem;
+    color: var(--Green-500);
+    background-color: var(--Grey-50);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tip__buttons input:focus, 
+.bill__calculator--input input:focus, 
+.bill__calculator--people input:focus {
+    outline: none;
+    border: 2px solid var(--Green-400);
+
+}
+
+.bill__calculator--results {
+    background-color: var(--Green-900);
+    border-radius: 15px;
+    padding: 2.5rem 1.5rem;
+    color: var(--White);
+    font-weight: 700;
+    width: 100%;
+}
+
+.bill__calculator--tip-amount, 
+.bill__calculator--total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+}
+
+.tip-per-person, 
+.total-per-person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.per-person {
+    font-size: 1rem;
+    color: var(--Grey-500);
+}
+
+.total-tip, 
+.total-amount {
+    font-size: 3rem;
+    color: var(--Green-400);
+}
+
+.dollar-sign {
+    font-size: 3rem;
+    color: var(--Green-400);
+}
+
+.reset {
+    background-color: var(--Green-400);
+    color: var(--Green-900);
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;  
+}
+
+.reset:hover {
+    background-color: var(--Grey-200);
+    color: var(--Green-900);
+}
+
+.people-error {
+    display: flex;
+    justify-content: space-between;
+}
+
+.error {
+    color: rgb(255, 0, 0);
+}
+
+.active {
+    background-color: var(--Green-400);
+    color: var(--Green-900);
+}
+
+#people__input.active {
+    border: 2px solid red;
+}
+
+
+@media screen and (min-width: 62rem) {
+    body {
+        max-width: 62rem;
+        
+    }
+    h1 {
+        margin-top: 0;
+        margin-bottom: 5rem;
+    }
+    .bill__calculator--container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        min-height: auto;
+        min-width: 58rem;
+        padding: 2rem 1.9rem 2rem 2.5rem;
+    }
+    .bill__calculator--results {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .tip__buttons {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    } 
+}
